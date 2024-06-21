@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { AiOutlineAlignCenter, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineAlignCenter, AiOutlineHome, AiOutlineUser, AiFillBulb, AiOutlineBulb } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsShare } from "react-icons/bs";
 import ThemeSwitch from "./ThemeSwitch";
@@ -12,35 +12,43 @@ const Navbar = () => {
 
   const sideList = [
     {
-      icon: <AiOutlineHome className="text-2xl" />,
+      icon: <AiOutlineHome className="text-xl" />,
       title: "Home",
     },
     {
-      icon: <AiOutlineUser className="text-2xl" />,
+      icon: <AiOutlineUser className="text-xl" />,
       title: "About Me",
     },
     {
-      icon: <AiOutlineAlignCenter className="text-2xl" />,
+      icon: <AiOutlineAlignCenter className="text-xl" />,
       title: "Projects",
     },
     {
-      icon: <AiOutlineHome className="text-2xl" />,
-      title: "item 4",
+      icon: <AiOutlineBulb className="text-xl" />,
+      title: "Skills",
     },
   ];
 
   const navList = [
     {
-      icon: <AiOutlineHome className="text-2xl mr-2" />,
+      icon: <AiOutlineHome className="text-xl mr-2" />,
       title: "Home",
+      link: "/"
     },
     {
-      icon: <AiOutlineUser className="text-2xl" />,
+      icon: <AiOutlineBulb className="text-xl mr-2" />,
+      title: "Skills",
+      link: "#skills"
+    },
+    {
+      icon: <AiOutlineUser className="text-xl" />,
       title: "About Me",
+      link: "#about"
     },
     {
-      icon: <AiOutlineAlignCenter className="text-2xl" />,
+      icon: <AiOutlineAlignCenter className="text-xl" />,
       title: "Projects",
+      link: "#projects"
     },
   ];
 
@@ -81,8 +89,12 @@ const Navbar = () => {
 
       <div className="flex items-center">
         <div className="hidden md:flex md:justify-between md:bg-transparent">
-          {navList.map(({ icon, title }, index) => {
+          {navList.map(({ icon, title, link }, index) => {
             return (
+              <a
+                key={index}
+                href={link}
+                className={`flex items-center font-medium mr-2 text-center ${resolvedTheme == "dark" ? "bg-[#161515] text-white" : "bg-white text-dark"}`}>
               <button
                 key={index}
                 title="Wishlist"
@@ -91,6 +103,7 @@ const Navbar = () => {
                 <span>{icon}</span>
                 <span>{title}</span>
               </button>
+              </a>
             );
           })}
         </div>

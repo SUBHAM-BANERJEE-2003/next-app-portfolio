@@ -12,8 +12,8 @@ const oxygen = Oxygen({
 })
 
 export const metadata: Metadata = {
-  title: 'Subham Video Streaming App',
-  description: 'This app will help you to have a peer to peer video call with your friends and family.',
+  title: 'Portfolio | SUBHAM BANERJEE',
+  description: "This is Subham Banerjee's portfolio website. Here you can find all the projects he has worked on and his past experiences.",
 }
 
 export default function RootLayout({
@@ -22,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={inter.className} suppressHydrationWarning>
-      <body className={inter.className}>
+    <html lang="en" className={oxygen.className} suppressHydrationWarning>
+      <body className={oxygen.className}>
         <ThemeProviders>
       <Navbar/>
       <main className='max-w-10xl mx-auto'>
